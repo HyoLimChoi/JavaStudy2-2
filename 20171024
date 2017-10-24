@@ -10,16 +10,10 @@ public class ClickScoreAndMove extends JFrame {
 	JLabel hello = new JLabel("hellow");
 	JLabel la = new JLabel("No Mouse Event");
 	JLabel score= new JLabel("점수 : " + myScore);
-	
 	JButton button=new JButton("위치 재설정");
-
 	
 	
 	ClickScoreAndMove(){
-		super("ClickScoreAndMove");
-
-
-
 		setTitle("객체지향프로그래밍 과제 ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(300,300);
@@ -29,25 +23,27 @@ public class ClickScoreAndMove extends JFrame {
 		contentPane.addMouseListener(new MyMouseListener());
 		contentPane.addMouseMotionListener(new MyMouseListener());
 		contentPane.setLayout(null);
+		
+		
 		contentPane.add(la);
 		la.setLocation(90, -60);
 		la.setSize(150,150);
 		
 	
+		contentPane.add(hello); 
 		hello.setLocation(50, 50);
 		hello.setSize(130,35);
-		contentPane.add(hello);  //이건 c여야댐
 		
 		
 
+		contentPane.add(button);		
 		button.setLocation(140, 220);
 		button.setSize(130,30);
-		contentPane.add(button);		
 		
+		
+		contentPane.add(score);		
 		score.setLocation(50,220);
 		score.setSize(60,30);
-		contentPane.add(score);		
-		
 
 
 		button.addActionListener(new MyActionListener());		
@@ -55,7 +51,6 @@ public class ClickScoreAndMove extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				myScore+=1;
 				score.setText("점수 : "+myScore);	
-				//score.setLocation(130,280);
 			}
 		});
 		
