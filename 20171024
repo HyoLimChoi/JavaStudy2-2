@@ -1,5 +1,3 @@
-package Study_Alone;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -30,28 +28,25 @@ public class ClickScoreAndMove extends JFrame {
 		setContentPane(contentPane);
 		contentPane.addMouseListener(new MyMouseListener());
 		contentPane.addMouseMotionListener(new MyMouseListener());
-		contentPane.setLayout(new BorderLayout());
-		contentPane.add("North",la);
-		//add(contentPane,"North");
-
-	
-		Container c=getContentPane();	
+		contentPane.setLayout(null);
+		contentPane.add(la);
+		la.setLocation(90, -60);
+		la.setSize(150,150);
 		
 	
 		hello.setLocation(50, 50);
 		hello.setSize(130,35);
-		c.add(hello);  //이건 c여야댐
+		contentPane.add(hello);  //이건 c여야댐
 		
 		
+
 		button.setLocation(140, 220);
 		button.setSize(130,30);
+		contentPane.add(button);		
 		
-		//add("Nort",contentPane);
-		c.add(button);		
-		
-		score.setLocation(130,280);
-		score.setSize(130,30);
-		c.add(score);		
+		score.setLocation(50,220);
+		score.setSize(60,30);
+		contentPane.add(score);		
 		
 
 
@@ -60,7 +55,7 @@ public class ClickScoreAndMove extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				myScore+=1;
 				score.setText("점수 : "+myScore);	
-				score.setLocation(130,280);
+				//score.setLocation(130,280);
 			}
 		});
 		
@@ -109,7 +104,3 @@ public class ClickScoreAndMove extends JFrame {
 	}//end of main
 
 }//end of class
-
-
-
-
