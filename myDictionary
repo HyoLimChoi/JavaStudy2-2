@@ -1,0 +1,101 @@
+package Study_Alone;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+
+
+public class Ground extends JFrame{
+	HashMap<String,String> dic= new HashMap<String, String>();
+	
+	JTextField insert = new JTextField(16);
+	JTextField insert2 = new JTextField(16);
+	JTextField search = new JTextField(16);
+	JButton enter= new JButton("입력");
+	JButton enter2= new JButton("검색");
+	JLabel result=new JLabel("검색 결과 :");
+	
+	public Ground() {
+		setTitle("나의 사전 ");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(600,150);
+		setVisible(true);
+		add(new myDictionary(),BorderLayout.NORTH);
+		add(new searchDic());
+	}
+	
+
+	class myDictionary extends JPanel {	
+		public myDictionary() {		
+			setBackground(Color.LIGHT_GRAY);		
+			add(new JLabel("단어 이름  :"));
+			add(insert);
+			add(new JLabel("단어 뜻  :"));
+			add(insert2);
+			
+			enter.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					dic.put(insert.getText(), insert2.getText());
+					System.out.println(insert.getText()+"라는 단어가 저장되었고, "+insert2.getText()+"라는 설명함.");
+				}
+			});
+			add(enter);
+		}
+	
+	}
+	
+	class searchDic extends JPanel{
+		String A;
+		JLabel InputSearch=new JLabel("단어 이름 검색  :");
+		public searchDic() {
+	
+		   setLayout(null);
+		   add(InputSearch);
+		   InputSearch.setLocation(20, 10);
+		   InputSearch.setSize(150,50);
+		   
+		   
+		   add(search);
+		   search.setLocation(120, 25);
+		   search.setSize(150,20);
+		   
+		   enter2.setLocation(280, 20);
+		   enter2.setSize(75, 25);
+		   add(enter2);
+		   
+		   result.setLocation(380, 25);
+		   result.setSize(150,20);
+		   add(result);
+			enter2.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {			
+					A=dic.get(search.getText());		
+					if(A==null)
+						A="사전에 해당 단어 없음";
+					result.setText("검색결과 : " + A);
+					}				
+			});
+				
+		}
+	}
+
+	
+	public static void main(String[] args) {
+		new Ground();
+	}
+}
+
