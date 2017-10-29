@@ -52,6 +52,8 @@ public class Ground extends JFrame{
 				public void actionPerformed(ActionEvent e) {
 					dic.put(insert.getText(), insert2.getText());
 					System.out.println(insert.getText()+"라는 단어가 저장되었고, "+insert2.getText()+"라는 설명함.");
+					insert.setText(" ");
+					insert2.setText(" ");
 				}
 			});
 			add(enter);
